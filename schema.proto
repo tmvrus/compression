@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.tmvrus.compression;
+
+option go_package = "github.com/tmvrus/compression";
+
+
+enum BalanceType {
+    BALANCE_TYPE_INVALID = 0;
+    BALANCE_TYPE_HOLD = 1;
+    BALANCE_TYPE_CONFIRMED = 2;
+}
+
+enum Currency {
+    CURRENCY_INVALID = 0;
+    CURRENCY_USD = 1;
+    CURRENCY_BTC = 2;
+}
+
+message AffiliateBalance {
+    uint32 client_id = 1;
+    uint64 affiliate_id = 2;
+    repeated Balance items = 3;
+}
+
+message Balance {
+    double value = 1;
+    BalanceType type = 2;
+    Currency currency = 3;
+}
